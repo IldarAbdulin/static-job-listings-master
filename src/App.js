@@ -9,7 +9,7 @@ import { addPositions } from 'store/postitions/position-actions';
 
 import data from './mock/data.json'
 
-function App() {
+export const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(addPositions(data))
@@ -24,5 +24,3 @@ function App() {
     </>
   );
 }
-
-export default App;
