@@ -13,7 +13,6 @@ export const JobList = () => {
   );
   const handleAddFilter = (filter) => {
     dispatch(addFilter(filter));
-    console.log(addFilter(filter));
   };
   return (
     <div className="job-list">
