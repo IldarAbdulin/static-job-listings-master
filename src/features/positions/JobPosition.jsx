@@ -3,7 +3,7 @@ import { Badge } from 'UI/Badge';
 import { Card } from 'UI/Card';
 import { Stack } from 'UI/Stack';
 
-export const JobPosition = ({
+const JobPosition = ({
   id,
   company,
   logo,
@@ -20,13 +20,18 @@ export const JobPosition = ({
   handleAddFilter,
 }) => {
   const badges = [].concat(role, level, ...languages, ...tools);
+
   return (
     <Card isFeatured={featured}>
-      <div className="job-position">
-        <div className="job-position-info">
-          <img className="job-position-avatar" src={logo} alt={company} />
-          <div className="job-position-body">
-            <div className="job-postion-company">
+      <div className='job-position'>
+        <div className='job-position-info'>
+          <img
+            className='job-position-avatar'
+            src={logo}
+            alt={company}
+          />
+          <div className='job-position-body'>
+            <div className='job-postion-company'>
               <h3>{company}</h3>
               {(isNew || featured) && (
                 <Stack>
@@ -43,25 +48,36 @@ export const JobPosition = ({
                 </Stack>
               )}
             </div>
-            <h2 className="job-position-title">{position}</h2>
+            <h2 className='job-position-title'>
+              {position}
+            </h2>
             <Stack>
-              <div className="job-position-meta">{postedAt}</div>
-              <div className="job-position-meta">{contract}</div>
-              <div className="job-position-meta">{location}</div>
+              <div className='job-position-meta'>
+                {postedAt}
+              </div>
+              <div className='job-position-meta'>
+                {contract}
+              </div>
+              <div className='job-position-meta'>
+                {location}
+              </div>
             </Stack>
           </div>
         </div>
         <Stack>
-          {badges.map((item) => (
-            <Badge onClick={() => handleAddFilter(item)} key={item}>
-              {item}
-            </Badge>
+          {badges.map(item => (
+            <Badge
+              key={item}
+              onClick={() => handleAddFilter(item)}
+            >{item}</Badge>
           ))}
         </Stack>
       </div>
     </Card>
-  );
-};
+  )
+}
+
+export {JobPosition};
 
 JobPosition.propTypes = {
   id: PropTypes.number,
